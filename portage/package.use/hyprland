@@ -1,0 +1,3 @@
+gui-wm/hyprland -qtutils
+gui-apps/waybar tray
+dev-libs/libdbusmenu gtk3
