@@ -2,3 +2,4 @@ net-misc/spice-gtk usbredir
 net-libs/gnutls pkcs11 tools
 app-crypt/p11-kit abi_x86_32
 net-dns/dnsmasq script
+app-emulation/qemu usbredir virgl spice

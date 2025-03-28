@@ -5,8 +5,8 @@ app-emulation/virt-manager
 app-eselect/eselect-repository
 app-misc/fastfetch
 app-misc/nwg-look
-app-misc/pfetch
 app-misc/ranger
+app-misc/solaar
 app-portage/eix
 app-portage/gentoolkit
 app-shells/bash-completion
@@ -16,12 +16,13 @@ games-util/gamemode
 games-util/mangohud
 games-util/steam-launcher
 gui-apps/fuzzel
-gui-apps/hypridle
-gui-apps/swww
+gui-apps/grim
+gui-apps/slurp
+gui-apps/swayidle
 gui-apps/waybar
-gui-libs/xdg-desktop-portal-hyprland
-gui-wm/hyprland
-gui-wm/hyprland-contrib
+gui-apps/wl-clipboard
+gui-libs/xdg-desktop-portal-wlr
+gui-wm/sway
 media-fonts/fontawesome
 media-fonts/nerdfonts
 media-fonts/noto
@@ -41,6 +42,7 @@ sci-libs/libqalculate
 sys-apps/flatpak
 sys-apps/lm-sensors
 sys-auth/elogind
+sys-auth/seatd
 sys-firmware/intel-microcode
 sys-firmware/sof-firmware
 sys-fs/btrfs-progs
