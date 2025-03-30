@@ -11,9 +11,11 @@ app-portage/eix
 app-portage/gentoolkit
 app-shells/bash-completion
 dev-lang/sassc
+dev-util/pkgdev
 dev-util/vulkan-tools
 games-util/gamemode
 games-util/mangohud
+games-util/r2modman
 games-util/steam-launcher
 gui-apps/fuzzel
 gui-apps/grim

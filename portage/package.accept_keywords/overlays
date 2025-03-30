@@ -1,5 +1,6 @@
 */*::guru ~amd64
 */*::librewolf ~amd64
+*/*::parona-overlay ~amd64
 */*::steam-overlay
 	games-util/game-device-udev-rules
 	sys-libs/libudev-compat
