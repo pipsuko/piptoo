@@ -1,0 +1,80 @@
+From 61fe8596f86ce5aa1be3e571b5e223f82e7de38e Mon Sep 17 00:00:00 2001
+From: Kenny Levinsen <kl@kl.wtf>
+Date: Mon, 24 Mar 2025 13:41:04 +0100
+Subject: [PATCH] wlr_scene: Debounce direct scanout
+
+If an ongoing direct scanout is disabled because of locks or similar,
+keep scanout disabled for a number of frames, resetting the counter
+whenever direct scanout is not allwoed.
+
+20 frames are arbitrarily picked.
+---
+ include/wlr/types/wlr_scene.h |  1 +
+ types/scene/wlr_scene.c       | 18 ++++++++++++++++++
+ 2 files changed, 19 insertions(+)
+
+diff --git a/include/wlr/types/wlr_scene.h b/include/wlr/types/wlr_scene.h
+index 0e3e7750a..4669b5c5e 100644
+--- a/include/wlr/types/wlr_scene.h
++++ b/include/wlr/types/wlr_scene.h
+@@ -222,6 +222,7 @@ struct wlr_scene_output {
+ 
+ 		uint8_t index;
+ 		bool prev_scanout;
++		int scanout_debounce;
+ 
+ 		bool gamma_lut_changed;
+ 		struct wlr_gamma_control_v1 *gamma_lut;
+diff --git a/types/scene/wlr_scene.c b/types/scene/wlr_scene.c
+index d64ee4ada..622ddb494 100644
+--- a/types/scene/wlr_scene.c
++++ b/types/scene/wlr_scene.c
+@@ -27,6 +27,7 @@
+ #endif
+ 
+ #define HIGHLIGHT_DAMAGE_FADEOUT_TIME 250
++#define SCANOUT_DEBOUNCE_FRAMES       20
+ 
+ struct wlr_scene_tree *wlr_scene_tree_from_node(struct wlr_scene_node *node) {
+ 	assert(node->type == WLR_SCENE_NODE_TREE);
+@@ -2093,6 +2094,17 @@ bool wlr_scene_output_build_state(struct wlr_scene_output *scene_output,
+ 	// - There is only one entry in the render list
+ 	// - There are no color transforms that need to be applied
+ 	// - Damage highlight debugging is not enabled
++	// - We have not failed scanout recently
++	if (scene_output->scanout_debounce > 0) {
++		if (!wlr_output_is_direct_scanout_allowed(scene_output->output)) {
++			// Locks are held, reset the debounce
++			scene_output->scanout_debounce = SCANOUT_DEBOUNCE_FRAMES;
++		} else {
++			scene_output->scanout_debounce--;
++		}
++		goto skip_scanout;
++	}
++
+ 	bool scanout = options->color_transform == NULL &&
+ 		list_len == 1 && debug_damage != WLR_SCENE_DEBUG_DAMAGE_HIGHLIGHT &&
+ 		scene_entry_try_direct_scanout(&list_data[0], state, &render_data);
+@@ -2101,6 +2113,10 @@ bool wlr_scene_output_build_state(struct wlr_scene_output *scene_output,
+ 		scene_output->prev_scanout = scanout;
+ 		wlr_log(WLR_DEBUG, "Direct scan-out %s",
+ 			scanout ? "enabled" : "disabled");
++		if (!scanout) {
++			// Lock out scanout for a bit
++			scene_output->scanout_debounce = SCANOUT_DEBOUNCE_FRAMES;
++		}
+ 	}
+ 
+ 	if (scanout) {
+@@ -2115,6 +2131,8 @@ bool wlr_scene_output_build_state(struct wlr_scene_output *scene_output,
+ 		return true;
+ 	}
+ 
++skip_scanout:;
++
+ 	struct wlr_swapchain *swapchain = options->swapchain;
+ 	if (!swapchain) {
+ 		if (!wlr_output_configure_primary_swapchain(output, state, &output->swapchain)) {
+-- 
+GitLab
+
