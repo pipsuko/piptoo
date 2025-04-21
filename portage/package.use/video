@@ -1,1 +1,3 @@
 media-video/mpv rubberband
+media-video/mpv libcaca
+media-video/ffmpeg opus

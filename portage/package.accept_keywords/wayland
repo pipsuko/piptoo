@@ -2,3 +2,5 @@ dev-cpp/sdbus-c++ ~amd64
 gui-wm/sway **
 gui-libs/wlroots **
 dev-libs/wayland-protocols **
+gui-apps/wf-recorder ~amd64
+gui-apps/sway-audio-idle-inhibit **
