@@ -15,7 +15,6 @@ app-shells/bash-completion
 dev-lang/sassc
 games-util/gamemode
 games-util/mangohud
-games-util/r2modman
 games-util/steam-launcher
 gui-apps/fuzzel
 gui-apps/grim
@@ -49,6 +48,7 @@ sys-auth/seatd
 sys-firmware/intel-microcode
 sys-firmware/sof-firmware
 sys-fs/btrfs-progs
+sys-fs/fuse:0
 sys-fs/ncdu
 sys-kernel/gentoo-kernel-bin
 sys-kernel/installkernel
