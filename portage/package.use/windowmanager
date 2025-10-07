@@ -3,3 +3,4 @@ gui-apps/swaybg gdk-pixbuf
 gui-apps/waybar experimental
 gui-apps/waybar tray
 dev-libs/libdbusmenu gtk3
+gui-wm/niri screencast
