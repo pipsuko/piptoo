@@ -8,6 +8,7 @@ app-emulation/virt-manager
 app-eselect/eselect-repository
 app-misc/fastfetch
 app-misc/nwg-look
+app-misc/pfetch
 app-misc/ranger
 app-office/libreoffice-bin
 app-portage/eix
