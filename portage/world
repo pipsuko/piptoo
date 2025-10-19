@@ -14,7 +14,6 @@ app-office/libreoffice-bin
 app-portage/eix
 app-portage/gentoolkit
 app-shells/bash-completion
-dev-lang/sassc
 games-util/gamemode
 games-util/mangohud
 games-util/steam-launcher
@@ -66,5 +65,5 @@ www-client/librewolf-bin
 x11-misc/dunst
 x11-misc/gammastep
 x11-terms/kitty
-x11-themes/catppuccin-cursors
+x11-themes/nordzy-cursors
 x11-themes/papirus-icon-theme
