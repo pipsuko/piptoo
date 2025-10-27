@@ -49,13 +49,13 @@ sys-apps/lm-sensors
 sys-apps/xdg-desktop-portal-gtk
 sys-auth/elogind
 sys-auth/seatd
-sys-firmware/intel-microcode
 sys-firmware/sof-firmware
 sys-fs/btrfs-progs
 sys-fs/fuse:0
 sys-kernel/gentoo-kernel-bin
 sys-kernel/installkernel
 sys-kernel/linux-firmware
+sys-kernel/zenergy
 sys-process/cronie
 sys-process/htop
 sys-process/nvtop
