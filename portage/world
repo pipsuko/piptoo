@@ -9,6 +9,7 @@ app-eselect/eselect-repository
 app-misc/fastfetch
 app-misc/nwg-look
 app-misc/ranger
+app-misc/via
 app-office/libreoffice-bin
 app-portage/eix
 app-portage/gentoolkit
