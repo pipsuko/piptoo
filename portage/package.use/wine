@@ -178,3 +178,5 @@
 # required by virtual/wine (argument)
 >=media-sound/cdparanoia-3.10.2-r8 abi_x86_32
 >=app-arch/xz-utils-5.8.1-r1 abi_x86_32
+media-libs/libwebp abi_x86_32
+virtual/zlib abi_x86_32
