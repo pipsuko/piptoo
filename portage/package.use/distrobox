@@ -1,2 +1,0 @@
-net-firewall/iptables nftables
-app-containers/podman btrfs

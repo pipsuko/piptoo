@@ -1,5 +1,1 @@
-dev-cpp/sdbus-c++ ~amd64
-gui-apps/wf-recorder ~amd64
 gui-apps/sway-audio-idle-inhibit **
-gui-wm/sway ~amd64 
-gui-libs/wlroots ~amd64

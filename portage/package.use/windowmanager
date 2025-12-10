@@ -1,6 +1,3 @@
-gui-wm/sway -tray wallpapers -swaybar
 gui-apps/swaybg gdk-pixbuf
-gui-apps/waybar experimental
-gui-apps/waybar tray
-dev-libs/libdbusmenu gtk3
+gui-apps/waybar network tray
 gui-wm/niri screencast
