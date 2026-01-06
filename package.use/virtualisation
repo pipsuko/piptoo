@@ -1,0 +1,2 @@
+app-emulation/qemu usbredir virgl spice
+net-libs/gnutls tools pkcs11
